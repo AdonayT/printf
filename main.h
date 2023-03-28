@@ -2,24 +2,35 @@
 #define MAIN_H
 
 #include <stdarg.h>
+#include <stddef.h>
+#include <stdlib.h>
 
-int _printf(const char *format, ...);
-int print_char(va_list args);
-int print_str(va_list args);
-int print_int(va_list args);
-int print_binary(va_list args);
-int print_unsigned(va_list args);
-int print_hex(va_list args);
-int print_octal(va_list args);
-int print_hex_upper(va_list args);
-int print_address(va_list args);
-int print_custom_string(va_list args);
+/**
+ * struct structprint - structure containing
+ * @q: the location and method to translate data to characters.
+ * @u: print function for specific type.
+ *
+ * Return: int
+ */
+typedef struct structprint
+{
+	char *q;
+	int (*u)(char *format, va_list);
+} structype;
 
-/* edits */
-int printrot13(va_list list);
-int revstring(va_list list);
-int get_length(const char *format, int *i);
-int get_precision(const char *format, int *i, va_list list);
-int get_width(const char *format, int *i, va_list list);
-int get_flags(const char *format, int *i);
-#endif /* MAIN_H */
+int _putchar(char ch);
+int _puts(char *string);
+int printc(char *format, va_list);
+int printstr(char *format, va_list);
+int (*driver(char *format))(char *format, va_list);
+int _printf(char *format, ...);
+int printint(char *format, va_list pa);
+int integer(int number);
+int contadordigit(int number);
+int _abs(int number);
+int printpercent(char *format, va_list pa);
+int printhex(char *format, va_list);
+int printHEX(char *format, va_list);
+int printocta(char *format, va_list);
+int print_unsign(char *format, va_list);
+#endif
