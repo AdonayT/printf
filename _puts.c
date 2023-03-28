@@ -2,19 +2,14 @@
 
 /**
  * _puts - prints a string
- * new line, to stdout.
- * @string: input string
- * Return: count of string.
+ * @str: pointer to the string to print
+ * Return: number of chars
  */
-int _puts(char *string)
+int _puts(char *str)
 {
-	int contador = 0;
+	register int i;
 
-	while (*string)
-	{
-		_putchar(*string);
-		string++;
-		contador++;
-	}
-	return (contador);
+	for (i = 0; str[i] != '\0'; i++)
+		print_out(str[i]);
+	return (i);
 }
