@@ -77,4 +77,15 @@ int get_sign(char s, sign_t *f);
 /* print address */
 int print_address(va_list valist);
 
+/* SIZES */
+#define S_LONG 2
+#define S_SHORT 1
+
+/****************** UTILS ******************/
+int is_printable(char);
+int append_hexa_code(char, char[], int);
+int is_digit(char);
+
+long int convert_size_number(long int num, int size);
+long int convert_size_unsgnd(unsigned long int num, int size);
 #endif
